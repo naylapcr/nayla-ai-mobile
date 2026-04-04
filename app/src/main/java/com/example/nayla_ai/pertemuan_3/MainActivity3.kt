@@ -1,26 +1,25 @@
-package com.example.nayla_ai.pertemuan_3
+package com.example.nayla_ai.pertemuan_3 // 1. ALAMAT HARUS ADA .pertemuan_3
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.nayla_ai.databinding.ActivityMainBinding
-import com.example.nayla_ai.databinding.ActivityMainBinding.*
+// 2. IMPORT INI WAJIB ADA AGAR BINDINGNYA KETEMU
+import com.example.nayla_ai.databinding.ActivityMain3Binding
 
 class MainActivity3 : AppCompatActivity() {
 
-    // Inisialisasi ViewBinding
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMain3Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Setup ViewBinding
-        binding = inflate(layoutInflater)
+        // 3. INISIALISASI BINDING
+        binding = ActivityMain3Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Event Klik Tombol Login
+        // 4. LOGIKA TOMBOL LOGIN
         binding.btnLogin.setOnClickListener {
-            // Berpindah ke WelcomeActivity di package pertemuan_3
+            // Karena sudah satu folder (package), tidak perlu import WelcomeActivity lagi
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
         }
