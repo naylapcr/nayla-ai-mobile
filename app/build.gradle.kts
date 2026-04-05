@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.nayla_ai"
+    namespace = "com.example.nayla_ai.pertemuan_3"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1

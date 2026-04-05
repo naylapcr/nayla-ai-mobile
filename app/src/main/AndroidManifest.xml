@@ -10,22 +10,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Naylaai">
+        android:theme="@style/Theme.Naylaai"
+        tools:targetApi="31">
+
         <activity
-            android:name=".pertemuan_3.WelcomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".pertemuan_3.activity_main"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name="com.example.nayla_ai.pertemuan_3.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.example.nayla_ai.pertemuan_3.WelcomeActivity" />
     </application>
 
 </manifest>

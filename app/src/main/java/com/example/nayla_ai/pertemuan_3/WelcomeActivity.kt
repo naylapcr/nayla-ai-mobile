@@ -1,12 +1,16 @@
-package com.example.nayla_ai.pertemuan_3 // Harus ada .pertemuan_3 di ujungnya
+package com.example.nayla_ai.pertemuan_3
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.nayla_ai.R // Import R dari package utama
+import androidx.appcompat.app.AppCompatActivity
+import com.example.nayla_ai.pertemuan_3.databinding.ActivityWelcomeBinding
 
 class WelcomeActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityWelcomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_welcome)
+        binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }
