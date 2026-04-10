@@ -12,5 +12,10 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-    }
+
+        // PERTEMUAN 4: Mengambil data dari Intent
+        val namaDiterima = intent.getStringExtra("NAMA_USER")
+
+        // Tampilkan ke layar
+        binding.tvWelcomeNama.text = "Halo, $namaDiterima!"}
 }

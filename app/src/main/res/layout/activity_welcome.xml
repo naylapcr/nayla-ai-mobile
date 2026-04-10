@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_fun">
+    android:orientation="vertical"
+    android:background="@color/shopee_bg"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvWelcomeNama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Halo, User!"
+        android:textColor="@color/shopee_orange"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Yay! You're in."
-        android:textSize="30sp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-condensed"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="8dp"
+        android:text="Selamat datang di loop. Fashion Store"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ready for a new bag?"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp"
-        android:textColor="@color/white"
-        android:textSize="16sp"/>
-
-</RelativeLayout>
+</LinearLayout>
