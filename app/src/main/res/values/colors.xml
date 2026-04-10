@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bg_fun">#F0F9FF</color>
-    <color name="primary_fun">#38BDF8</color>
-    <color name="accent_fun">#FB7185</color>
-    <color name="text_dark">#0F172A</color>
-
-    <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
-    <color name="shopee_orange">#EE4D2D</color>
-    <color name="shopee_bg">#F5F5F5</color>
+    <color name="bg_fun">#F0F9FF</color> <color name="primary_fun">#38BDF8</color> <color name="accent_fun">#FB7185</color> <color name="text_dark">#0F172A</color> <color name="white">#FFFFFF</color>
 </resources>
