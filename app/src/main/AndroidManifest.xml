@@ -14,7 +14,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name="com.example.nayla_ai.pertemuan_3.LoginActivity"
+            android:name="com.example.nayla_ai.pertemuan_4.MenuUtamaActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,24 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.nayla_ai.pertemuan_3.WelcomeActivity" />
+        <activity
+            android:name="com.example.nayla_ai.pertemuan_4.GallerySatuActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.nayla_ai.pertemuan_4.GalleryDuaActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.nayla_ai.pertemuan_3.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.nayla_ai.pertemuan_3.WelcomeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.nayla_ai.MainActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
