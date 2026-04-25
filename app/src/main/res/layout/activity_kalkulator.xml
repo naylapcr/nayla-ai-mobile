@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/accent_blue">
+
+    <include
+        android:id="@+id/includeToolbar"
+        layout="@layout/toolbar_main" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kalkulator Bangun Ruang"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_blue"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText
+            android:id="@+id/etJariDatar"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Jari-jari Lingkaran"
+            android:inputType="numberDecimal"
+            android:backgroundTint="@color/primary_blue"/>
+
+        <Button
+            android:id="@+id/btnHitungDatar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hitung Luas Lingkaran"
+            android:backgroundTint="@color/primary_blue"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tvHasilDatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hasil Luas: 0"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/primary_blue"
+            android:layout_marginVertical="20dp"/>
+
+        <EditText
+            android:id="@+id/etJariRuang"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Jari-jari Tabung"
+            android:inputType="numberDecimal"/>
+
+        <EditText
+            android:id="@+id/etTinggiRuang"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Tinggi Tabung"
+            android:inputType="numberDecimal"/>
+
+        <Button
+            android:id="@+id/btnHitungRuang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hitung Volume Tabung"
+            android:backgroundTint="@color/secondary_blue"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tvHasilRuang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hasil Volume: 0"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

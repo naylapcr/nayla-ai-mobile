@@ -2,7 +2,8 @@ package com.example.nayla_ai.pertemuan_3
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.nayla_ai.pertemuan_3.databinding.ActivityWelcomeBinding
+import com.example.nayla_ai.databinding.ActivityWelcomeBinding
+
 
 class WelcomeActivity : AppCompatActivity() {
 

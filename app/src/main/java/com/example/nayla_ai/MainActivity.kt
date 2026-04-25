@@ -1,57 +1,36 @@
 package com.example.nayla_ai
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.nayla_ai.pertemuan_3.databinding.ActivityMainBinding
-import java.util.Locale
+import com.example.nayla_ai.AuthActivity
+import com.example.nayla_ai.pertemuan_4.MenuUtamaActivity
 
 class MainActivity : AppCompatActivity() {
 
-    // Inisialisasi binding untuk mengakses komponen XML
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Tidak perlu setContentView(R.layout.activity_main) karena activity ini hanya melempar halaman
 
-        // Memasang layout menggunakan ViewBinding
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        // 1. Ambil data dari SharedPreferences
+        val sharedPref = getSharedPreferences("UserSession", Context.MODE_PRIVATE)
 
-        // 1. LOGIKA BANGUN DATAR: LUAS LINGKARAN
-        binding.btnHitungDatar.setOnClickListener {
-            val input = binding.etJariDatar.text.toString()
+        // 2. Cek status login (apakah isLoggedIn bernilai true?)
+        val isLoggedIn = sharedPref.getBoolean("isLoggedIn", false)
 
-            if (input.isNotEmpty()) {
-                val r = input.toDouble()
-                val luas = Math.PI * r * r
-
-                // Menampilkan hasil dengan 2 angka di belakang koma
-                binding.tvHasilDatar.text = String.Companion.format(Locale.getDefault(), "Hasil Luas: %.2f", luas)
-            } else {
-                showToast("Masukkan jari-jari lingkaran!")
-            }
+        // 3. Jalankan logika pengecekan sesuai ketentuan modul
+        if (isLoggedIn) {
+            // Jika sudah login (true), langsung ke Dashboard/Menu Utama
+            val intent = Intent(this, MenuUtamaActivity::class.java)
+            startActivity(intent)
+        } else {
+            // Jika belum login (false), arahkan ke halaman Login (AuthActivity)
+            val intent = Intent(this, AuthActivity::class.java)
+            startActivity(intent)
         }
 
-        // 2. LOGIKA BANGUN RUANG: VOLUME TABUNG
-        binding.btnHitungRuang.setOnClickListener {
-            val inputR = binding.etJariRuang.text.toString()
-            val inputT = binding.etTinggiRuang.text.toString()
-
-            if (inputR.isNotEmpty() && inputT.isNotEmpty()) {
-                val r = inputR.toDouble()
-                val t = inputT.toDouble()
-                val volume = Math.PI * r * r * t
-
-                binding.tvHasilRuang.text = String.Companion.format(Locale.getDefault(), "Hasil Volume: %.2f", volume)
-            } else {
-                showToast("Lengkapi data jari-jari dan tinggi!")
-            }
-        }
-    }
-
-    // Fungsi tambahan agar kode lebih rapi saat memanggil Toast
-    private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        // 4. Tutup MainActivity agar user tidak bisa kembali ke halaman kosong ini
+        finish()
     }
 }

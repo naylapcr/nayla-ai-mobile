@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.nayla_ai.pertemuan_3"
+    namespace = "com.example.nayla_ai"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -11,6 +11,10 @@ android {
 
         buildFeatures {
             viewBinding = true
+        }
+
+        viewBinding {
+            enable = true
         }
     }
 

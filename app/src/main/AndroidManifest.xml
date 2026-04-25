@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,35 +14,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Naylaai"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
         <activity
-            android:name="com.example.nayla_ai.pertemuan_4.MenuUtamaActivity"
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.example.nayla_ai.pertemuan_4.GallerySatuActivity"
+            android:name=".AuthActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.nayla_ai.pertemuan_4.GalleryDuaActivity"
-            android:exported="false" />
-
-        <activity
-            android:name="com.example.nayla_ai.pertemuan_3.LoginActivity"
+            android:name=".pertemuan_4.MenuUtamaActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.nayla_ai.pertemuan_3.WelcomeActivity"
+            android:name=".pertemuan_4.KalkulatorActivity"
             android:exported="false" />
-
         <activity
-            android:name="com.example.nayla_ai.MainActivity"
+            android:name=".pertemuan_5.WebViewActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".pertemuan_4.GallerySatuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pertemuan_4.GalleryDuaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pertemuan_3.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pertemuan_3.WelcomeActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

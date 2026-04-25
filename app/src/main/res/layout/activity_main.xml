@@ -1,146 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0F2F5"
-    tools:context=".MainActivity">
+    android:background="@color/primary_blue">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="20dp">
+        android:indeterminateTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kalkulator Bangun Ruang dan
-            Bangun Datar"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#1A237E"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Memeriksa Sesi..."
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardDatar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="6dp"
-            app:layout_constraintTop_toBottomOf="@id/tvHeader">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Luas Lingkaran (π × r²)"
-                    android:textColor="#6200EE"
-                    android:textStyle="bold"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/etJariDatar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Masukkan Jari-jari (r)"
-                    android:inputType="numberDecimal"
-                    android:layout_marginTop="12dp"
-                    android:padding="12dp"
-                    android:background="@android:drawable/editbox_background" />
-
-                <Button
-                    android:id="@+id/btnHitungDatar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="HITUNG LUAS"
-                    android:layout_marginTop="15dp"
-                    android:backgroundTint="#6200EE" />
-
-                <TextView
-                    android:id="@+id/tvHasilDatar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hasil: 0"
-                    android:textSize="18sp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:textColor="#2E7D32"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardRuang"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="6dp"
-            app:layout_constraintTop_toBottomOf="@id/cardDatar">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Volume Tabung (π × r² × t)"
-                    android:textColor="#0288D1"
-                    android:textStyle="bold"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/etJariRuang"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Jari-jari (r)"
-                    android:inputType="numberDecimal"
-                    android:layout_marginTop="12dp"
-                    android:padding="12dp"
-                    android:background="@android:drawable/editbox_background" />
-
-                <EditText
-                    android:id="@+id/etTinggiRuang"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Tinggi (t)"
-                    android:inputType="numberDecimal"
-                    android:layout_marginTop="8dp"
-                    android:padding="12dp"
-                    android:background="@android:drawable/editbox_background" />
-
-                <Button
-                    android:id="@+id/btnHitungRuang"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="HITUNG VOLUME"
-                    android:layout_marginTop="15dp"
-                    android:backgroundTint="#0288D1" />
-
-                <TextView
-                    android:id="@+id/tvHasilRuang"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hasil: 0"
-                    android:textSize="18sp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:textColor="#E65100"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

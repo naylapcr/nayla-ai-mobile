@@ -26,6 +26,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="#000000" />
 
+    <include
+        layout="@layout/toolbar_main"
+        android:id="@+id/includeToolbar" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"

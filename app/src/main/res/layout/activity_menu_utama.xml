@@ -1,59 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:gravity="center"
-    android:background="@color/bg_fun">
+    android:background="@color/accent_blue">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dashboard"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/text_dark"
-        android:layout_marginBottom="30dp"/>
-
-    <Button
-        android:id="@+id/btnP2"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Kalkulator Bangun Ruang"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/primary_fun"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary_blue"
+        android:elevation="4dp"
+        app:titleTextColor="@color/white" />
 
-    <Button
-        android:id="@+id/btnG1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Lihat Koleksi Tas 1"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/accent_fun"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center">
 
-    <Button
-        android:id="@+id/btnG2"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Lihat Koleksi Tas 2"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/accent_fun"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dashboard Utama"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_blue"
+            android:layout_marginBottom="30dp"/>
 
-    <Button
-        android:id="@+id/btnP3"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Login"
-        android:layout_marginBottom="30dp"
-        android:backgroundTint="@color/primary_fun"/>
+        <Button
+            android:id="@+id/btnP2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Kalkulator Bangun Ruang"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/primary_blue"
+            app:cornerRadius="10dp"/>
 
-    <TextView
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout dari Aplikasi"
-        android:textColor="@color/accent_fun"
-        android:textStyle="bold"/>
+        <Button
+            android:id="@+id/btnG1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Lihat Koleksi Tas 1"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/secondary_blue"
+            app:cornerRadius="10dp"/>
 
+        <Button
+            android:id="@+id/btnG2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Lihat Koleksi Tas 2"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/secondary_blue"
+            app:cornerRadius="10dp"/>
+
+        <Button
+            android:id="@+id/btnWebView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Buka Layanan Surat"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/primary_blue"
+            app:cornerRadius="10dp" />
+
+        <Button
+            android:id="@+id/btnP3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/secondary_blue"
+            android:text="Login"
+            app:cornerRadius="10dp" />
+
+        <TextView
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout dari Aplikasi"
+            android:textColor="@color/primary_blue"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 </LinearLayout>

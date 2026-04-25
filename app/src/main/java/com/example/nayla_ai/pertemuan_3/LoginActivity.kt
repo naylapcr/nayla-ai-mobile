@@ -3,7 +3,7 @@ package com.example.nayla_ai.pertemuan_3
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.nayla_ai.pertemuan_3.databinding.ActivityLoginBinding
+import com.example.nayla_ai.databinding.ActivityLoginBinding
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
