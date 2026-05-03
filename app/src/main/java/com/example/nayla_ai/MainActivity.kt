@@ -4,33 +4,31 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.nayla_ai.AuthActivity
-import com.example.nayla_ai.pertemuan_4.MenuUtamaActivity
+import com.example.nayla_ai.BaseActivity
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Tidak perlu setContentView(R.layout.activity_main) karena activity ini hanya melempar halaman
 
-        // 1. Ambil data dari SharedPreferences
+        // Membuka SharedPreferences untuk mengecek sesi pengguna
         val sharedPref = getSharedPreferences("UserSession", Context.MODE_PRIVATE)
 
-        // 2. Cek status login (apakah isLoggedIn bernilai true?)
+        // Mengambil status login (isLoggedIn). Jika belum ada data, default-nya false
         val isLoggedIn = sharedPref.getBoolean("isLoggedIn", false)
 
-        // 3. Jalankan logika pengecekan sesuai ketentuan modul
+        // Logika Pengalihan Halaman:
         if (isLoggedIn) {
-            // Jika sudah login (true), langsung ke Dashboard/Menu Utama
-            val intent = Intent(this, MenuUtamaActivity::class.java)
+            // JIKA SUDAH LOGIN: Arahkan ke BaseActivity (Rumah Fragment kamu)
+            val intent = Intent(this, BaseActivity::class.java)
             startActivity(intent)
         } else {
-            // Jika belum login (false), arahkan ke halaman Login (AuthActivity)
+            // JIKA BELUM LOGIN: Arahkan ke AuthActivity (Layar Login)
             val intent = Intent(this, AuthActivity::class.java)
             startActivity(intent)
         }
 
-        // 4. Tutup MainActivity agar user tidak bisa kembali ke halaman kosong ini
+        // Tutup MainActivity agar tidak bisa balik lagi ke sini dengan tombol back
         finish()
     }
 }

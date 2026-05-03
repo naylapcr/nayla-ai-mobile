@@ -16,7 +16,9 @@
         android:theme="@style/Theme.Naylaai"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
+        <activity
+            android:name=".BaseActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
@@ -33,25 +35,22 @@
             android:name=".AuthActivity"
             android:exported="false" />
         <activity
-            android:name=".pertemuan_4.MenuUtamaActivity"
-            android:exported="false" />
-        <activity
             android:name=".pertemuan_4.KalkulatorActivity"
             android:exported="false" />
         <activity
-            android:name=".pertemuan_5.WebViewActivity"
+            android:name=".Home.pertemuan_5.WebViewActivity"
             android:exported="false" />
         <activity
-            android:name=".pertemuan_4.GallerySatuActivity"
+            android:name=".Home.pertemuan_4.GallerySatuActivity"
             android:exported="false" />
         <activity
-            android:name=".pertemuan_4.GalleryDuaActivity"
+            android:name=".Home.pertemuan_4.GalleryDuaActivity"
             android:exported="false" />
         <activity
-            android:name=".pertemuan_3.LoginActivity"
+            android:name=".Home.pertemuan_3.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".pertemuan_3.WelcomeActivity"
+            android:name=".Home.pertemuan_3.WelcomeActivity"
             android:exported="false" />
     </application>
 

@@ -1,4 +1,4 @@
-package com.example.nayla_ai.pertemuan_5
+package com.example.nayla_ai.Home.pertemuan_5
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -20,10 +20,10 @@ class WebViewActivity : AppCompatActivity() {
 
         // Konfigurasi WebView agar link bisa diklik dan jalan
         binding.webView.apply {
-            webViewClient = WebViewClient() // Supaya link tidak buka browser luar
+            webViewClient = WebViewClient()
             settings.apply {
                 javaScriptEnabled = true
-                domStorageEnabled = true // PENTING: Supaya fitur web modern/layanan-surat jalan
+                domStorageEnabled = true
                 allowContentAccess = true
                 allowFileAccess = true
                 mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW

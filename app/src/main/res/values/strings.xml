@@ -20,4 +20,9 @@
     <string name="loop">loop.</string>
     <string name="carry_your_joy_everyday">Carry your joy everyday</string>
     <string name="your_name">Your name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sidera">Sistem Desa dan Administrasi Surat</string>
+    <string name="layanan_surat">layanan surat</string>
+    <string name="Sistem_Desa_dan_Administrasi_Surat">Sistem Desa dan Administrasi Surat</string>
 </resources>

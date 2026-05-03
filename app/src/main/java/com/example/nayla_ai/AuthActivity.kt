@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.nayla_ai.databinding.ActivityLoginBinding
 import com.example.nayla_ai.pertemuan_4.MenuUtamaActivity
 import com.google.android.material.snackbar.Snackbar
+import kotlin.jvm.java
 
 class AuthActivity : AppCompatActivity() {
 
@@ -37,18 +38,17 @@ class AuthActivity : AppCompatActivity() {
             val username = binding.etUsername.text.toString()
             val password = binding.etPassword.text.toString()
 
-            // Logika login sederhana (username sama dengan password)
+
             if (username.isNotEmpty() && username == password) {
-                // Simpan Sesi Login
+
                 val editor = sharedPref.edit()
                 editor.putBoolean("isLoggedIn", true)
                 editor.putString("username", username)
                 editor.apply()
 
-                // Pindah ke Menu Utama
-                val intent = Intent(this, MenuUtamaActivity::class.java)
+                val intent = Intent(this, BaseActivity::class.java)
                 startActivity(intent)
-                finish() // Tutup halaman login agar tidak bisa di-back
+                finish()
             } else {
                 Snackbar.make(binding.root, "Username atau Password salah!", Snackbar.LENGTH_SHORT).show()
             }

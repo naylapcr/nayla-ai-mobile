@@ -7,7 +7,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nayla_ai.databinding.ActivityMenuUtamaBinding
 import com.example.nayla_ai.AuthActivity
-import com.example.nayla_ai.pertemuan_5.WebViewActivity
+import com.example.nayla_ai.Home.pertemuan_4.GalleryDuaActivity
+import com.example.nayla_ai.Home.pertemuan_4.GallerySatuActivity
+import com.example.nayla_ai.Home.pertemuan_5.WebViewActivity
 import com.google.android.material.snackbar.Snackbar
 
 class MenuUtamaActivity : AppCompatActivity() {

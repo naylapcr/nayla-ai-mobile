@@ -1,4 +1,4 @@
-package com.example.nayla_ai.pertemuan_3
+package com.example.nayla_ai.Home.pertemuan_3
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -2,26 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="40dp"
     android:gravity="center"
     android:background="@color/accent_blue"> <View
     android:layout_width="80dp"
     android:layout_height="80dp"
-    android:background="@drawable/key"
-    android:backgroundTint="@color/primary_blue"/> <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/loop"
-    android:textSize="42sp"
-    android:fontFamily="sans-serif-medium"
-    android:layout_marginTop="16dp"
-    android:textColor="@color/white" />
+    android:background="@drawable/sidera" />
 
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/Sistem_Desa_dan_Administrasi_Surat"
+        android:textColor="@color/white"
+        android:textSize="32sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/carry_your_joy_everyday"
+        android:text="@string/layanan_surat"
         android:textSize="16sp"
         android:fontFamily="sans-serif-light"
         android:textColor="@color/primary_blue" /> <EditText
