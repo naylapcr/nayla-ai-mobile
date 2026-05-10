@@ -212,7 +212,7 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/cal" />
+                            android:src="@drawable/calll" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -241,7 +241,7 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/sidera" />
+                            android:src="@drawable/letter" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -270,7 +270,7 @@
                         <ImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:src="@drawable/tas1" />
+                            android:src="@drawable/logobag" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -299,7 +299,7 @@
                         <ImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:src="@drawable/tas2" />
+                            android:src="@drawable/logobag" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -326,6 +326,23 @@
                 app:icon="@drawable/key"
                 app:iconGravity="textStart"
                 android:backgroundTint="#E3F2FD"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnP9"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="12dp"
+                android:text="Pengajuan Layanan"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_message"
+                app:iconGravity="textStart"
+                android:backgroundTint="#E3F2FD"
+                android:textColor="#1A237E"
+                app:iconTint="#1A237E"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

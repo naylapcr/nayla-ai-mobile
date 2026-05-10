@@ -3,7 +3,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="primary_blue">#1E40AF</color> <color name="secondary_blue">#3B82F6</color> <color name="accent_blue">#DBEAFE</color> <color name="colorPrimary">@color/primary_blue</color>
+    <color name="primary_blue">#1E40AF</color>
+    <color name="secondary_blue">#3B82F6</color>
+    <color name="accent_blue">#DBEAFE</color>
+    <color name="colorPrimary">@color/primary_blue</color>
     <color name="colorPrimaryDark">#173691</color>
     <color name="colorAccent">@color/secondary_blue</color>
 </resources>

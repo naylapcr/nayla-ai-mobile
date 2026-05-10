@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.nayla_ai.Home.HomeFragment
 import com.example.nayla_ai.About.AboutFragment
+import com.example.nayla_ai.Message.MessageFragment
 import com.example.nayla_ai.Profile.ProfileFragment
+import com.example.nayla_ai.Settings.SettingsFragment
 import com.example.nayla_ai.databinding.ActivityBaseBinding
 
 class BaseActivity : AppCompatActivity() {
@@ -14,33 +16,44 @@ class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Inisialisasi binding dengan benar
+        // 1. Inisialisasi View Binding
         binding = ActivityBaseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set Toolbar manual
+        // 2. Setup Toolbar
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = "Layanan Surat Desa"
+        supportActionBar?.title = "Nayla Apps"
 
-        // Pasang fragment pertama
+        // 3. Set fragment default saat aplikasi pertama dibuka
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, HomeFragment())
-                .commit()
+            replaceFragment(HomeFragment())
         }
 
+        // 4. Logika Klik Bottom Navigation
         binding.bottomNavView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
                     replaceFragment(HomeFragment())
+                    supportActionBar?.title = "Dashboard"
+                    true
+                }
+                R.id.nav_message -> { // Menambah navigasi ke fitur Pertemuan 9
+                    replaceFragment(MessageFragment())
+                    supportActionBar?.title = "Messages"
                     true
                 }
                 R.id.nav_about -> {
                     replaceFragment(AboutFragment())
+                    supportActionBar?.title = "About Us"
                     true
                 }
                 R.id.nav_profile -> {
                     replaceFragment(ProfileFragment())
+                    supportActionBar?.title = "My Profile"
+                    true
+                }
+                R.id.nav_settings -> {
+                    replaceFragment(SettingsFragment())
                     true
                 }
                 else -> false
@@ -48,6 +61,7 @@ class BaseActivity : AppCompatActivity() {
         }
     }
 
+    // Fungsi pembantu untuk mengganti fragment agar kode lebih rapi
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)

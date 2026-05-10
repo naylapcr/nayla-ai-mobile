@@ -19,11 +19,9 @@ class MainActivity : AppCompatActivity() {
 
         // Logika Pengalihan Halaman:
         if (isLoggedIn) {
-            // JIKA SUDAH LOGIN: Arahkan ke BaseActivity (Rumah Fragment kamu)
             val intent = Intent(this, BaseActivity::class.java)
             startActivity(intent)
         } else {
-            // JIKA BELUM LOGIN: Arahkan ke AuthActivity (Layar Login)
             val intent = Intent(this, AuthActivity::class.java)
             startActivity(intent)
         }
