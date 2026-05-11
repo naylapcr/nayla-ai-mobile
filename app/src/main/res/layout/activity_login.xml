@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="40dp"
     android:gravity="center"
-    android:background="@color/accent_blue"> <View
-    android:layout_width="80dp"
-    android:layout_height="80dp"
-    android:background="@drawable/sidera" />
+    android:background="@color/accent_blue">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/sidera" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -17,20 +19,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:fontFamily="sans-serif-medium"
         android:text="@string/Sistem_Desa_dan_Administrasi_Surat"
         android:textColor="@color/white"
-        android:textSize="32sp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/layanan_surat"
-        android:textSize="16sp"
-        android:fontFamily="sans-serif-light"
-        android:textColor="@color/primary_blue" /> <EditText
+        android:textSize="24sp" />
+
+    <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -47,7 +41,7 @@
         android:layout_height="60dp"
         android:hint="Password"
         android:inputType="textPassword"
-        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
         android:layout_marginTop="15dp"
         android:background="@android:drawable/editbox_background"
         android:backgroundTint="@color/white"
@@ -61,6 +55,14 @@
         android:textAllCaps="false"
         android:textSize="18sp"
         android:layout_marginTop="30dp"
-        android:backgroundTint="@color/secondary_blue" android:textColor="@color/white" />
+        android:backgroundTint="@color/secondary_blue"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnToRegister"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:text="Register" />
+
 
 </LinearLayout>
