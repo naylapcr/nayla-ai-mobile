@@ -311,6 +311,22 @@
                 </com.google.android.material.card.MaterialCardView>
             </GridLayout>
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnP10"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:text="Produk Layanan Surat"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                android:backgroundTint="#759fc9"
+                app:icon="@drawable/key"
+                app:iconGravity="textStart"
+                />
+
             <!-- 4. Footer Button: Admin Access -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnP3"
@@ -325,7 +341,7 @@
                 app:cornerRadius="20dp"
                 app:icon="@drawable/key"
                 app:iconGravity="textStart"
-                android:backgroundTint="#E3F2FD"/>
+                android:backgroundTint="#759fc9"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnP9"
@@ -340,7 +356,7 @@
                 app:cornerRadius="20dp"
                 app:icon="@drawable/ic_message"
                 app:iconGravity="textStart"
-                android:backgroundTint="#E3F2FD"
+                android:backgroundTint="#759fc9"
                 android:textColor="#1A237E"
                 app:iconTint="#1A237E"/>
 

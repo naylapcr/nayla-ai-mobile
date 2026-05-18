@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.nayla_ai.AuthActivity
+import com.example.nayla_ai.Home.pertemuan_10.TenthActivity
 import com.example.nayla_ai.Home.pertemuan_4.GalleryDuaActivity
 import com.example.nayla_ai.Home.pertemuan_4.GallerySatuActivity
 import com.example.nayla_ai.Home.pertemuan_5.WebViewActivity
@@ -52,11 +53,12 @@ class HomeFragment : Fragment() {
         binding.btnP3.setOnClickListener {
             startActivity(Intent(requireContext(), AuthActivity::class.java))
         }
-
-        // === TAMBAHAN UNTUK PERTEMUAN 9 ===
-        // Pastikan ID tombol di fragment_home.xml adalah btnP9 atau sesuaikan dengan ID yang kamu buat
         binding.btnP9.setOnClickListener {
             val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnP10.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
     }

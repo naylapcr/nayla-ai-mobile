@@ -4,18 +4,10 @@ plugins {
 
 android {
     namespace = "com.example.nayla_ai"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
+    compileSdk = 36
 
-        buildFeatures {
-            viewBinding = true
-        }
-
-        viewBinding {
-            enable = true
-        }
+    buildFeatures {
+        viewBinding = true
     }
 
     defaultConfig {
@@ -53,4 +45,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.glide)
 }
