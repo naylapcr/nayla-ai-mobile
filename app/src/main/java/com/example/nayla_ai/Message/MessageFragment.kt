@@ -24,10 +24,8 @@ class MessageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. Inisialisasi RecyclerView
         val rvMessage: RecyclerView = view.findViewById(R.id.rvMessage)
 
-        // 2. Inisialisasi ChipGroup untuk Filter
         val chipGroup: ChipGroup = view.findViewById(R.id.chipGroupMessage)
 
         // 3. Data Dummy (Sesuai tema Nayla Apps)

@@ -37,7 +37,7 @@ class BaseActivity : AppCompatActivity() {
                     supportActionBar?.title = "Dashboard"
                     true
                 }
-                R.id.nav_message -> { // Menambah navigasi ke fitur Pertemuan 9
+                R.id.nav_message -> {
                     replaceFragment(MessageFragment())
                     supportActionBar?.title = "Messages"
                     true
