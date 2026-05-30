@@ -29,5 +29,6 @@ class NewsAdapter(private val newsList: List<BeritaDesaResponse>) :
             .into(holder.binding.ivNewsThumb)
     }
 
+
     override fun getItemCount(): Int = newsList.size
 }
