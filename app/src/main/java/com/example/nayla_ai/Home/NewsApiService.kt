@@ -7,10 +7,8 @@ import retrofit2.http.GET
 
 // 1. Interface untuk endpoint API
 interface NewsApiService {
-    @GET("posts") // Sesuaikan dengan endpoint yang kamu pakai
+    @GET("posts")
     fun getNews(): Call<List<BeritaDesaResponse>>
-
-    // 2. Companion object untuk membuat instance
     companion object {
         private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
 

@@ -1,9 +1,11 @@
 package com.example.nayla_ai.Message
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "message_table")
 data class MessageModel(
-    val id: Int,
-    val senderName: String,
-    val messageContent: String,
-    val time: String,
-    val imageProfile: Int // Menggunakan resource ID (R.drawable...)
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val sender: String,
+    val content: String
 )

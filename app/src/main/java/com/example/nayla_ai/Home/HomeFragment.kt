@@ -52,14 +52,13 @@ class HomeFragment : Fragment() {
     }
 
     private fun getLiveNewsData() {
-        // 1. Tampilkan dari cache jika ada (Instan)
+
         if (cachedNews != null) {
             showNews(cachedNews!!)
         } else {
             binding.progressBar.visibility = View.VISIBLE
         }
 
-        // 2. Ambil data terbaru dari internet
         apiService.getNews().enqueue(object : Callback<List<BeritaDesaResponse>> {
             override fun onResponse(call: Call<List<BeritaDesaResponse>>, response: Response<List<BeritaDesaResponse>>) {
                 binding.progressBar.visibility = View.GONE

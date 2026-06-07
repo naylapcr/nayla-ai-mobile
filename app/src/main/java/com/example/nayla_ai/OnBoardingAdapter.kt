@@ -14,7 +14,7 @@ class OnboardingAdapter(
     private val onStartClick: () -> Unit
 ) : RecyclerView.Adapter<OnboardingAdapter.OnboardingViewHolder>() {
 
-    // Data sederhana untuk tiap slide
+
     private val titles = listOf("Selamat Datang", "Manajemen Inventaris", "Integrasi Berita")
     private val descriptions = listOf("Ini adalah aplikasi Bina Desa", "Kelola asetmu dengan mudah", "Pantau berita secara real-time")
 
@@ -35,7 +35,6 @@ class OnboardingAdapter(
         holder.title.text = titles[position]
         holder.description.text = descriptions[position]
 
-        // Tombol "Ayo Mulai" hanya muncul di slide terakhir (posisi 2)
         if (position == titles.size - 1) {
             holder.btnStart.visibility = View.VISIBLE
 

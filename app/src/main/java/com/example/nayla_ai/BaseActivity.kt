@@ -7,7 +7,8 @@ import com.example.nayla_ai.Home.HomeFragment
 import com.example.nayla_ai.About.AboutFragment
 import com.example.nayla_ai.Message.MessageFragment
 import com.example.nayla_ai.Profile.ProfileFragment
-import com.example.nayla_ai.Settings.SettingsFragment
+import com.example.nayla_ai.Review.ReviewFragment
+import com.example.nayla_ai.note.NoteFragment
 import com.example.nayla_ai.databinding.ActivityBaseBinding
 
 class BaseActivity : AppCompatActivity() {
@@ -42,9 +43,9 @@ class BaseActivity : AppCompatActivity() {
                     supportActionBar?.title = "Messages"
                     true
                 }
-                R.id.nav_about -> {
-                    replaceFragment(AboutFragment())
-                    supportActionBar?.title = "About Us"
+                R.id.nav_review -> {
+                    replaceFragment(ReviewFragment())
+                    supportActionBar?.title = "Reviews"
                     true
                 }
                 R.id.nav_profile -> {
@@ -52,8 +53,9 @@ class BaseActivity : AppCompatActivity() {
                     supportActionBar?.title = "My Profile"
                     true
                 }
-                R.id.nav_settings -> {
-                    replaceFragment(SettingsFragment())
+                R.id.noteFragment -> {
+                    replaceFragment(NoteFragment())
+                    supportActionBar?.title = "Notes"
                     true
                 }
                 else -> false

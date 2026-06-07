@@ -36,6 +36,11 @@ class LoginActivity : AppCompatActivity() {
             if ((inputUser == inputPass && inputUser.isNotEmpty()) ||
                 (inputUser == savedUser && inputPass == savedPass && inputUser.isNotEmpty())) {
 
+                val sessionPref = getSharedPreferences("UserSession", MODE_PRIVATE)
+                val editor = sessionPref.edit()
+                editor.putBoolean("isLoggedIn", true)
+                editor.apply()
+
                 // Jika Berhasil: Arahkan ke Home
                 val intent =
                     Intent(this, MainActivity::class.java) // Sesuaikan nama Home Activity kamu

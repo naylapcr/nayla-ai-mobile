@@ -5,9 +5,9 @@
         android:icon="@drawable/home"
         android:title="Home" />
     <item
-        android:id="@+id/nav_about"
-        android:icon="@drawable/information"
-        android:title="About" />
+        android:id="@+id/nav_review"
+        android:icon="@drawable/ic_star"
+        android:title="Review" />
 
     <item
         android:id="@+id/nav_message"
@@ -20,7 +20,7 @@
         android:title="Profile" />
 
     <item
-        android:id="@+id/nav_settings"
-        android:icon="@drawable/set"
-        android:title="Settings" />
+        android:id="@+id/noteFragment"
+        android:icon="@drawable/ic_note"
+        android:title="Note" />
 </menu>

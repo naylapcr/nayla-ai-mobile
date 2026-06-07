@@ -21,7 +21,6 @@ class NewsAdapter(private val newsList: List<BeritaDesaResponse>) :
         holder.binding.tvNewsTitle.text = news.title ?:"Tanpa Judul"
         holder.binding.tvNewsDesc.text = news.body ?: "Tanpa Deskripsi"
 
-        // Mengunduh gambar secara asinkronus menggunakan Glide
         Glide.with(holder.itemView.context)
             .load("https://picsum.photos/200/200?random=$position") // Gambar random biar gak kosong
             .placeholder(android.R.drawable.ic_menu_gallery)
