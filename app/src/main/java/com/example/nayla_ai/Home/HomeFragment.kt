@@ -47,6 +47,9 @@ class HomeFragment : Fragment() {
         binding.btnP3.setOnClickListener { startActivity(Intent(requireContext(), AuthActivity::class.java)) }
         binding.btnP9.setOnClickListener { startActivity(Intent(requireContext(), NinthActivity::class.java)) }
         binding.btnP10.setOnClickListener { startActivity(Intent(requireContext(), TenthActivity::class.java)) }
+        binding.btnLihatSemua.setOnClickListener {
+            startActivity(Intent(requireContext(), com.example.nayla_ai.agenda.AgendaListActivity::class.java))
+        }
 
         getLiveNewsData()
     }
