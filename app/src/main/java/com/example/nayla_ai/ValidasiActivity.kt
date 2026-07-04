@@ -18,6 +18,13 @@ class ValidasiActivity : AppCompatActivity() {
         binding = ActivityValidasiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(binding.includeToolbar.toolbar)
+        supportActionBar?.apply {
+            title = getString(R.string.title_validasi)
+            setDisplayHomeAsUpEnabled(true)
+        }
+        binding.includeToolbar.toolbar.setNavigationOnClickListener { onBackPressed() }
+
         // 1. Ambil data dari SharedPreferences
         val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
         val name = sharedPref.getString("name", "") ?: ""
@@ -25,25 +32,24 @@ class ValidasiActivity : AppCompatActivity() {
         val dob = sharedPref.getString("dob", "") ?: ""
         val gender = sharedPref.getString("gender", "") ?: ""
         val user = sharedPref.getString("username", "") ?: ""
-        val pass = sharedPref.getString("password", "") ?: ""
 
         // 2. Tampilkan ke UI
         binding.apply {
-            tvValNama.text = "Nama: $name"
-            tvValEmail.text = "Email: $email"
-            tvValTanggal.text = "Tgl Lahir: $dob"
-            tvValGender.text = "Gender: $gender"
-            tvValUser.text = "Username: $user"
+            tvValNama.text = getString(R.string.label_nama, name)
+            tvValEmail.text = getString(R.string.label_email, email)
+            tvValTanggal.text = getString(R.string.label_tgl_lahir, dob)
+            tvValGender.text = getString(R.string.label_gender, gender)
+            tvValUser.text = getString(R.string.label_username, user)
         }
 
         // 3. Tombol Submit (Validasi Akhir)
         binding.btnSubmit.setOnClickListener {
             // Cek apakah ada yang kosong (sesuai soal b2)
             if (name.isEmpty() || email.isEmpty() || user.isEmpty()) {
-                Toast.makeText(this, "Data di SP tidak lengkap!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.msg_sp_incomplete), Toast.LENGTH_SHORT).show()
             } else {
                 // Jika berhasil, tampilkan pesan Registrasi Berhasil
-                Toast.makeText(this, "Registrasi Berhasil! Selamat datang $name", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.msg_regis_success, name), Toast.LENGTH_LONG).show()
                 // Kamu bisa arahkan ke LoginActivity atau Dashboard di sini
             }
         }

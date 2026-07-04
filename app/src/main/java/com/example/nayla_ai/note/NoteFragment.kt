@@ -2,6 +2,7 @@ package com.example.nayla_ai.note
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -20,7 +21,16 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = NoteAdapter { note -> viewModel.deleteNote(note) }
+        adapter = NoteAdapter { note ->
+            AlertDialog.Builder(requireContext())
+                .setTitle("Hapus Catatan")
+                .setMessage("Apakah Anda yakin ingin menghapus catatan ini?")
+                .setPositiveButton("Hapus") { _, _ ->
+                    viewModel.deleteNote(note)
+                }
+                .setNegativeButton("Batal", null)
+                .show()
+        }
 
         view.findViewById<RecyclerView>(R.id.rvNotes).apply {
             layoutManager = LinearLayoutManager(requireContext())

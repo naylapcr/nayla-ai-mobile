@@ -25,4 +25,30 @@
     <string name="sidera">Sistem Desa dan Administrasi Surat</string>
     <string name="layanan_surat">layanan surat</string>
     <string name="Sistem_Desa_dan_Administrasi_Surat">Sistem Desa dan Administrasi Surat</string>
+
+    <!-- Validasi Activity -->
+    <string name="title_validasi">Validasi Data</string>
+    <string name="label_validasi_header">Validasi Data Anda</string>
+    <string name="label_nama">Nama: %1$s</string>
+    <string name="label_email">Email: %1$s</string>
+    <string name="label_tgl_lahir">Tgl Lahir: %1$s</string>
+    <string name="label_gender">Gender: %1$s</string>
+    <string name="label_username">Username: %1$s</string>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_kembali_regis">Kembali Ke Registrasi</string>
+    <string name="msg_sp_incomplete">Data di SP tidak lengkap!</string>
+    <string name="msg_regis_success">Registrasi Berhasil! Selamat datang %1$s</string>
+
+    <!-- Multimedia Activity -->
+    <string name="title_multimedia">Multimedia &amp; QR</string>
+    <string name="label_camera_section">Kamera &amp; Foto</string>
+    <string name="btn_take_photo">Ambil Foto</string>
+    <string name="label_qr_generator">QR Code Generator</string>
+    <string name="hint_qr_input">Masukkan Teks untuk QR</string>
+    <string name="btn_generate_qr">Generate QR</string>
+    <string name="btn_open_scanner">Buka Scanner QR</string>
+
+    <!-- Scanner Activity -->
+    <string name="label_scan_instruction">Arahkan Kamera ke QR Code</string>
+    <string name="btn_back">Kembali</string>
 </resources>

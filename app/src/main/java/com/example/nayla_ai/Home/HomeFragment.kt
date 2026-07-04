@@ -23,11 +23,9 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val apiService = NewsApiService.instance
-
     companion object {
         var cachedNews: List<BeritaDesaResponse>? = null
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,12 +39,23 @@ class HomeFragment : Fragment() {
 
         // Tombol-tombol navigasi
         binding.btnP2.setOnClickListener { startActivity(Intent(requireContext(), KalkulatorActivity::class.java)) }
+
         binding.btnG1.setOnClickListener { startActivity(Intent(requireContext(), GallerySatuActivity::class.java)) }
+
         binding.btnG2.setOnClickListener { startActivity(Intent(requireContext(), GalleryDuaActivity::class.java)) }
+
         binding.btnWebView.setOnClickListener { startActivity(Intent(requireContext(), WebViewActivity::class.java)) }
+
         binding.btnP3.setOnClickListener { startActivity(Intent(requireContext(), AuthActivity::class.java)) }
+
         binding.btnP9.setOnClickListener { startActivity(Intent(requireContext(), NinthActivity::class.java)) }
+
         binding.btnP10.setOnClickListener { startActivity(Intent(requireContext(), TenthActivity::class.java)) }
+
+        binding.btnP13.setOnClickListener {
+            startActivity(Intent(requireContext(), com.example.nayla_ai.Home.pertemuan_13.MultimediaActivity::class.java))
+        }
+
         binding.btnLihatSemua.setOnClickListener {
             startActivity(Intent(requireContext(), com.example.nayla_ai.agenda.AgendaListActivity::class.java))
         }
@@ -64,6 +73,7 @@ class HomeFragment : Fragment() {
 
         apiService.getNews().enqueue(object : Callback<List<BeritaDesaResponse>> {
             override fun onResponse(call: Call<List<BeritaDesaResponse>>, response: Response<List<BeritaDesaResponse>>) {
+                if (_binding == null) return
                 binding.progressBar.visibility = View.GONE
                 if (response.isSuccessful && response.body() != null) {
                     cachedNews = response.body()
@@ -72,6 +82,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<BeritaDesaResponse>>, t: Throwable) {
+                if (_binding == null) return
                 binding.progressBar.visibility = View.GONE
                 Toast.makeText(requireContext(), "Gagal memuat berita", Toast.LENGTH_SHORT).show()
             }

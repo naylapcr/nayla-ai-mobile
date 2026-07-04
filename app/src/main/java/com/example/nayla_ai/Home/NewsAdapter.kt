@@ -18,11 +18,17 @@ class NewsAdapter(private val newsList: List<BeritaDesaResponse>) :
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val news = newsList[position]
-        holder.binding.tvNewsTitle.text = news.title ?:"Tanpa Judul"
-        holder.binding.tvNewsDesc.text = news.body ?: "Tanpa Deskripsi"
+        
+        // Buat judul lebih bertema desa jika data dari API terlalu generic
+        val displayTitle = news.title?.let { 
+            if (it.length > 20) "Info Desa: ${it.take(30)}..." else "Kabar Desa: $it"
+        } ?: "Tanpa Judul"
+        
+        holder.binding.tvNewsTitle.text = displayTitle
+        holder.binding.tvNewsDesc.text = news.body ?: "Klik untuk membaca detail berita selengkapnya..."
 
         Glide.with(holder.itemView.context)
-            .load("https://picsum.photos/200/200?random=$position") // Gambar random biar gak kosong
+            .load("https://picsum.photos/400/300?nature,village&sig=$position") // Gambar bertema alam/desa
             .placeholder(android.R.drawable.ic_menu_gallery)
             .error(android.R.drawable.stat_notify_error)
             .into(holder.binding.ivNewsThumb)

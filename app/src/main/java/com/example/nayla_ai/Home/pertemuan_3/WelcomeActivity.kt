@@ -13,5 +13,12 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setSupportActionBar(binding.includeToolbar.toolbar)
+        supportActionBar?.apply {
+            title = "Welcome"
+            setDisplayHomeAsUpEnabled(true)
+        }
+        binding.includeToolbar.toolbar.setNavigationOnClickListener { onBackPressed() }
     }
 }

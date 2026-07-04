@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0F4F8">
+    android:background="@color/background_light">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -20,57 +20,54 @@
             <!-- 1. Top Section: Branding & Greeting -->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="220dp">
+                android:layout_height="90dp">
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/gradient_blue" /> <!-- Gradient yang sudah kamu buat -->
+                    android:background="@drawable/bg_home_header" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="24dp"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center_vertical">
+                    android:orientation="vertical"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="2dp">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Good Morning,"
-                            android:textColor="@color/primary_blue"
-                            android:textSize="14sp" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Nayla ✨"
-                            android:textSize="28sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary_blue" />
-                    </LinearLayout>
+                        android:text="Home"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        app:cardCornerRadius="30dp"
-                        app:cardElevation="0dp"
-                        app:cardBackgroundColor="#33FFFFFF">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/profil"
-                            android:scaleType="centerCrop"
-                            android:adjustViewBounds="true" />
-
-                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Explore Your Village"
+                        android:textSize="14sp"
+                        android:textColor="#E0E7FF"
+                        android:layout_marginTop="0dp" />
                 </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="#33FFFFFF"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="24dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/profil"
+                        android:scaleType="centerCrop" />
+
+                </com.google.android.material.card.MaterialCardView>
             </RelativeLayout>
 
             <!-- 2. Highlight Card: Agenda Kegiatan Desa -->
@@ -78,16 +75,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="-60dp"
-                app:cardCornerRadius="28dp"
-                app:cardElevation="12dp">
+                android:layout_marginTop="-25dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp">
 
                 <!-- Tambahkan background #E3F2FD di sini agar seluruh kartu seragam -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:background="#E3F2FD"
+                    android:background="@color/card_light_blue"
                     android:padding="20dp">
 
                     <TextView
@@ -209,7 +206,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:background="#E3F2FD"> <!-- Warna disamakan -->
+                        android:background="@color/card_light_blue"> <!-- Warna disamakan -->
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
@@ -238,7 +235,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:background="#E3F2FD"> <!-- Warna utama -->
+                        android:background="@color/card_light_blue"> <!-- Warna utama -->
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
@@ -267,7 +264,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:background="#E3F2FD"> <!-- Warna disamakan -->
+                        android:background="@color/card_light_blue"> <!-- Warna disamakan -->
                         <ImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
@@ -296,7 +293,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:background="#E3F2FD"> <!-- Warna disamakan -->
+                        android:background="@color/card_light_blue"> <!-- Warna disamakan -->
                         <ImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
@@ -323,9 +320,13 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:cornerRadius="20dp"
-                android:backgroundTint="#759fc9"
-                app:icon="@drawable/key"
+                android:backgroundTint="#E3F2FD"
+                app:icon="@drawable/ic_note"
                 app:iconGravity="textStart"
+                android:textColor="#1A237E"
+                app:iconTint="#1A237E"
+                app:strokeColor="#3B82F6"
+                app:strokeWidth="1dp"
                 />
 
             <!-- 4. Footer Button: Admin Access -->
@@ -342,7 +343,9 @@
                 app:cornerRadius="20dp"
                 app:icon="@drawable/key"
                 app:iconGravity="textStart"
-                android:backgroundTint="#759fc9"/>
+                android:backgroundTint="#1A237E"
+                android:textColor="@color/white"
+                app:iconTint="@color/white"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnP9"
@@ -357,9 +360,26 @@
                 app:cornerRadius="20dp"
                 app:icon="@drawable/ic_message"
                 app:iconGravity="textStart"
-                android:backgroundTint="#759fc9"
-                android:textColor="#1A237E"
-                app:iconTint="#1A237E"/>
+                android:backgroundTint="#3B82F6"
+                android:textColor="@color/white"
+                app:iconTint="@color/white"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnP13"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="12dp"
+                android:text="Multimedia &amp; Scan QR"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/handphone"
+                app:iconGravity="textStart"
+                android:backgroundTint="#673AB7"
+                android:textColor="@color/white"
+                app:iconTint="@color/white"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -371,32 +391,25 @@
                 android:textColor="#37474F"
                 android:textSize="18sp"/>
 
-            <ProgressBar
-                android:id="@+id/pbNewsLoading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginVertical="20dp"
-                android:visibility="visible" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvNewsList"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
-                android:paddingBottom="24dp" />
+                android:layout_height="wrap_content">
 
-            <!-- Tambahkan ini di dalam root layout fragment_home.xml -->
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvNewsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:paddingBottom="24dp" />
 
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="32dp"
+                    android:visibility="gone" />
+            </FrameLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

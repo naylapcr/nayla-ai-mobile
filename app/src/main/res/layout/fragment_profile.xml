@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F7FA"
+    android:background="@color/background_light"
     android:clipToPadding="false">
 
     <LinearLayout
@@ -35,7 +35,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="258dp"
-                    android:background="#E3F2FD"
+                    android:background="@color/card_light_blue"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:gravity="center"
@@ -64,7 +64,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="Nayla"
-                        android:textColor="#1A237E"
+                        android:textColor="@color/text_primary"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -72,7 +72,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sistem Informasi • PCR"
-                        android:textColor="#90A4AE"
+                        android:textColor="@color/text_muted"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -107,7 +107,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#E3F2FD"
+                    android:background="@color/card_light_blue"
                     android:padding="16dp">
 
                     <View
@@ -125,7 +125,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:text="Email"
-                        android:textColor="#90A4AE"
+                        android:textColor="@color/text_muted"
                         android:textSize="11sp"
                         app:layout_constraintStart_toEndOf="@id/iconEmail"
                         app:layout_constraintTop_toTopOf="@id/iconEmail" />
@@ -153,7 +153,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#E3F2FD"
+                    android:background="@color/card_light_blue"
                     android:padding="16dp">
 
                     <View
@@ -171,7 +171,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:text="LinkedIn Profile"
-                        android:textColor="#90A4AE"
+                        android:textColor="@color/text_muted"
                         android:textSize="11sp"
                         app:layout_constraintStart_toEndOf="@id/iconLinkedIn"
                         app:layout_constraintTop_toTopOf="@id/iconLinkedIn" />

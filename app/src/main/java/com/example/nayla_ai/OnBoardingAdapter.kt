@@ -14,7 +14,6 @@ class OnboardingAdapter(
     private val onStartClick: () -> Unit
 ) : RecyclerView.Adapter<OnboardingAdapter.OnboardingViewHolder>() {
 
-
     private val titles = listOf("Selamat Datang", "Manajemen Inventaris", "Integrasi Berita")
     private val descriptions = listOf("Ini adalah aplikasi Bina Desa", "Kelola asetmu dengan mudah", "Pantau berita secara real-time")
 

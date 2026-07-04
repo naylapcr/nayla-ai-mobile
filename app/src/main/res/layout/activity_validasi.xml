@@ -1,61 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
-    android:background="#F8F9FE">
+    android:background="@color/background_light">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Validasi Data Anda"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#1A237E"
-        android:layout_marginBottom="24dp"/>
+    <include
+        android:id="@+id/includeToolbar"
+        layout="@layout/toolbar_main" />
 
-    <com.google.android.material.card.MaterialCardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="2dp"
-        app:cardBackgroundColor="@color/white">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_validasi_header"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="24dp"/>
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/white">
 
-            <TextView android:id="@+id/tvValNama" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nama: -" android:layout_marginBottom="8dp"/>
-            <TextView android:id="@+id/tvValEmail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Email: -" android:layout_marginBottom="8dp"/>
-            <TextView android:id="@+id/tvValTanggal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tgl Lahir: -" android:layout_marginBottom="8dp"/>
-            <TextView android:id="@+id/tvValGender" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Gender: -" android:layout_marginBottom="8dp"/>
-            <TextView android:id="@+id/tvValUser" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Username: -" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+                <TextView android:id="@+id/tvValNama" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_nama" android:layout_marginBottom="8dp" android:textColor="@color/text_primary" tools:text="Nama: -"/>
+                <TextView android:id="@+id/tvValEmail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_email" android:layout_marginBottom="8dp" android:textColor="@color/text_primary" tools:text="Email: -"/>
+                <TextView android:id="@+id/tvValTanggal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_tgl_lahir" android:layout_marginBottom="8dp" android:textColor="@color/text_primary" tools:text="Tgl Lahir: -"/>
+                <TextView android:id="@+id/tvValGender" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_gender" android:layout_marginBottom="8dp" android:textColor="@color/text_primary" tools:text="Gender: -"/>
+                <TextView android:id="@+id/tvValUser" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_username" android:textColor="@color/text_primary" tools:text="Username: -"/>
 
-    <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="Submit"
-        android:backgroundTint="#2D5BFF"
-        app:cornerRadius="12dp"
-        android:layout_marginBottom="12dp"/>
+        <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnKembali"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="Kembali Ke Registrasi"
-        app:cornerRadius="12dp"
-        android:textColor="#2D5BFF"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="@string/btn_submit"
+            android:backgroundTint="@color/primary_blue"
+            app:cornerRadius="12dp"
+            android:layout_marginBottom="12dp"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnKembali"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="@string/btn_kembali_regis"
+            app:cornerRadius="12dp"
+            android:textColor="@color/primary_blue"/>
+
+    </LinearLayout>
 </LinearLayout>

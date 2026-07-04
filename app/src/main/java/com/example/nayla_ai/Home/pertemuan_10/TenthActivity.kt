@@ -26,12 +26,14 @@ class TenthActivity : AppCompatActivity() {
             insets
         }
 
-        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(binding.includeToolbar.toolbar)
         supportActionBar?.apply {
-            setHomeAsUpIndicator(R.drawable.ic_arrow_back)
             title = "Produk Layanan Surat"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
+        }
+        binding.includeToolbar.toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
 
         // 1. Inisialisasi Adapter
@@ -47,7 +49,7 @@ class TenthActivity : AppCompatActivity() {
                 0 -> {
                     tab.text = "Jenis Surat"
                     //Tambah Icon
-                    tab.icon = ContextCompat.getDrawable(  this, R.drawable.ic_home)
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_note)
                     //Tambah Badge Tanpa nomor (hanya titik)
                     val badge = tab.getOrCreateBadge()
                     badge.isVisible = true
@@ -55,7 +57,7 @@ class TenthActivity : AppCompatActivity() {
                 1 -> {
                     tab.text = "Berkas Surat"
                     //Tambah Icon
-                    tab.icon = ContextCompat.getDrawable(  this, R.drawable.ic_home)
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_note)
                     //Tambah Badge dengan nomor
                     val badge = tab.getOrCreateBadge()
                     badge.isVisible = true

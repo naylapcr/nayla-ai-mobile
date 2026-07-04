@@ -16,6 +16,41 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnLogout.setOnClickListener {
+            showLogoutConfirmation()
+        }
+    }
+
+    private fun showLogoutConfirmation() {
+        com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Logout")
+            .setMessage("Apakah Anda yakin ingin keluar dari aplikasi?")
+            .setNegativeButton("Batal") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton("Ya, Keluar") { _, _ ->
+                logout()
+            }
+            .show()
+    }
+
+    private fun logout() {
+        // 1. Hapus Session
+        val sharedPref = requireContext().getSharedPreferences("UserSession", android.content.Context.MODE_PRIVATE)
+        sharedPref.edit().clear().apply()
+
+        // 2. Arahkan ke LoginActivity
+        val intent = android.content.Intent(requireContext(), com.example.nayla_ai.LoginActivity::class.java)
+        intent.flags = android.content.Intent.FLAG_ACTIVITY_NEW_TASK or android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        
+        // 3. Selesai
+        requireActivity().finish()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

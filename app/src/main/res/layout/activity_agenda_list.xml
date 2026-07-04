@@ -5,58 +5,22 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:background="@color/background_light"
     tools:context=".agenda.AgendaListActivity">
 
-    <!-- Judul Halaman -->
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Semua Agenda Desa"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <include
+        android:id="@+id/includeToolbar"
+        layout="@layout/toolbar_main"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- List Agenda -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAgenda"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
-        app:layout_constraintBottom_toTopOf="@id/reminderContainer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@android:layout/simple_list_item_1" />
-
-    <!-- Kontainer Fitur Reminder -->
-    <LinearLayout
-        android:id="@+id/reminderContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <EditText
-            android:id="@+id/edtMenit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Menit sebelum agenda"
-            android:inputType="number"
-            android:padding="12dp" />
-
-        <Button
-            android:id="@+id/btnReminder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Atur Pengingat"
-            android:layout_marginStart="8dp" />
-    </LinearLayout>
+        android:layout_height="0dp"
+        android:paddingTop="8dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/includeToolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/item_agenda" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

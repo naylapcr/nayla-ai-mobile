@@ -7,24 +7,17 @@ import com.example.nayla_ai.databinding.ActivityKalkulatorBinding
 import java.util.Locale
 
 class KalkulatorActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityKalkulatorBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityKalkulatorBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        // --- SETUP TOOLBAR ---
-        // Kita panggil toolbar yang ada di dalam includeToolbar
         setSupportActionBar(binding.includeToolbar.toolbar)
         supportActionBar?.apply {
             title = "Kalkulator Bangun"
             setDisplayHomeAsUpEnabled(true) // Munculkan tombol panah back
             setDisplayShowHomeEnabled(true)
         }
-
-        // Tombol Luas Lingkaran
         binding.btnHitungDatar.setOnClickListener {
             val input = binding.etJariDatar.text.toString()
 
@@ -36,8 +29,6 @@ class KalkulatorActivity : AppCompatActivity() {
                 Toast.makeText(this, "Masukkan jari-jari lingkaran!", Toast.LENGTH_SHORT).show()
             }
         }
-
-        // Tombol Volume Tabung
         binding.btnHitungRuang.setOnClickListener {
             val inputR = binding.etJariRuang.text.toString()
             val inputT = binding.etTinggiRuang.text.toString()
@@ -52,8 +43,6 @@ class KalkulatorActivity : AppCompatActivity() {
         }
     }
 
-    // --- FUNGSI TOMBOL BACK ---
-    // Agar saat panah di klik, dia benar-benar kembali ke halaman sebelumnya
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()
         return true

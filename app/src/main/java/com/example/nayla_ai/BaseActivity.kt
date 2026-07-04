@@ -23,7 +23,7 @@ class BaseActivity : AppCompatActivity() {
 
         // 2. Setup Toolbar
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = "Nayla Apps"
+        supportActionBar?.title = ""
 
         // 3. Set fragment default saat aplikasi pertama dibuka
         if (savedInstanceState == null) {
@@ -35,7 +35,7 @@ class BaseActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_home -> {
                     replaceFragment(HomeFragment())
-                    supportActionBar?.title = "Dashboard"
+                    supportActionBar?.title = ""
                     true
                 }
                 R.id.nav_message -> {
@@ -63,7 +63,6 @@ class BaseActivity : AppCompatActivity() {
         }
     }
 
-    // Fungsi pembantu untuk mengganti fragment agar kode lebih rapi
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)

@@ -6,12 +6,9 @@ data class BeritaDesaResponse(
     @SerializedName("id")
     val id: Int?,
 
-    @SerializedName("first_name")
+    @SerializedName("title")
     val title: String?,
 
-    @SerializedName("email")
-    val body: String?,
-
-    @SerializedName("avatar")
-    val image: String?
+    @SerializedName("body")
+    val body: String?
 )

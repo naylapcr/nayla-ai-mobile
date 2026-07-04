@@ -57,10 +57,23 @@ class MessageFragment : Fragment() {
 
     private fun loadData() {
         lifecycleScope.launch(Dispatchers.IO) {
-            // Mengambil data dari database di background thread
-            val listPesan = database.messageDao().getAllMessages()
+            // 1. Ambil data dari database
+            var listPesan = database.messageDao().getAllMessages()
 
-            // Update UI di Main Thread
+            // 2. Jika data kosong (karena reset/install baru), isi dengan data awal
+            if (listPesan.isEmpty()) {
+                val initialMessages = listOf(
+                    MessageModel(sender = "Admin Desa", content = "Selamat datang di aplikasi Nayla AI! Gunakan aplikasi ini untuk layanan administrasi."),
+                    MessageModel(sender = "Sistem", content = "Jangan lupa untuk melengkapi data profil Anda di menu Profile."),
+                    MessageModel(sender = "Layanan Surat", content = "Informasi: Pengajuan Surat Keterangan Domisili Anda telah disetujui."),
+                    MessageModel(sender = "Bina Desa", content = "Ada agenda musyawarah baru besok pagi. Silakan cek menu Agenda.")
+                )
+                initialMessages.forEach { database.messageDao().insert(it) }
+                // Ambil ulang setelah diisi
+                listPesan = database.messageDao().getAllMessages()
+            }
+
+            // 3. Update UI di Main Thread
             withContext(Dispatchers.Main) {
                 adapter = MessageAdapter(listPesan) { message ->
                     deleteMessage(message)

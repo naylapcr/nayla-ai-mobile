@@ -18,7 +18,12 @@ class WebViewActivity : AppCompatActivity() {
         binding = ActivityWebViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Konfigurasi WebView agar link bisa diklik dan jalan
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         binding.webView.apply {
             webViewClient = WebViewClient()
             settings.apply {
@@ -31,7 +36,6 @@ class WebViewActivity : AppCompatActivity() {
             loadUrl("https://layanan-surat.alwaysdata.net/")
         }
 
-        // Handle Back Button
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (binding.webView.canGoBack()) {

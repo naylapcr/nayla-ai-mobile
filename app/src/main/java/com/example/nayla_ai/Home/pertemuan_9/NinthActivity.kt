@@ -20,6 +20,12 @@ class NinthActivity : AppCompatActivity() {
         binding = ActivityNinthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Gunakan view dari binding secara langsung
+        setSupportActionBar(binding.includeToolbar.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Form Layanan"
+        binding.includeToolbar.toolbar.setNavigationOnClickListener { onBackPressed() }
+
         binding.btnKirim.setOnClickListener {
             // Mengambil teks dari Chip yang dipilih
             val selectedChipId = binding.chipGroupKategori.checkedChipId
@@ -29,7 +35,16 @@ class NinthActivity : AppCompatActivity() {
 
             if (nama.isNotEmpty()) {
                 Toast.makeText(this, "Berhasil! Pengajuan $kategori atas nama $nama telah dikirim.", Toast.LENGTH_LONG).show()
-                // Kamu bisa tambahkan finish() atau pindah halaman ke Dashboard
+                
+                // Mengosongkan form setelah berhasil kirim
+                binding.tilNama.editText?.text?.clear()
+                binding.tilPesan.editText?.text?.clear()
+                binding.tilNama.error = null // Menghilangkan error jika ada
+                binding.chipAdmin.isChecked = true // Reset kategori ke default
+                
+                // Menghilangkan fokus dari input agar keyboard bisa tertutup atau tidak menutupi layar
+                binding.tilNama.clearFocus()
+                binding.tilPesan.clearFocus()
             } else {
                 binding.tilNama.error = "Harap isi nama lengkap"
             }

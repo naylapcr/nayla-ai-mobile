@@ -20,13 +20,26 @@ class AgendaListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agenda_list)
 
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.apply {
+            title = "Agenda Desa"
+            setDisplayHomeAsUpEnabled(true)
+        }
+        toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         val rv = findViewById<RecyclerView>(R.id.rvAgenda)
         rv.layoutManager = LinearLayoutManager(this)
 
         // Data agenda lengkap sesuai dengan parameter class AgendaModel
         val listData = listOf(
             AgendaModel("Musyawarah Pembangunan", "09:00 WIB", "Balai Desa"),
-            AgendaModel("Gotong Royong", "07:00 WIB", "Lapangan Desa")
+            AgendaModel("Gotong Royong Bersama", "07:00 WIB", "Lapangan Utama"),
+            AgendaModel("Posyandu Balita & Lansia", "08:30 WIB", "PKK Center"),
+            AgendaModel("Sosialisasi Dana Desa", "14:00 WIB", "Aula Kantor Desa"),
+            AgendaModel("Rapat Karang Taruna", "19:30 WIB", "Rumah Pak RT 04")
         )
 
         rv.adapter = AgendaAdapter(this, listData)
