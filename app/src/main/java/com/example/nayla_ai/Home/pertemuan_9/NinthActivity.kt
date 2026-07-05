@@ -20,34 +20,77 @@ class NinthActivity : AppCompatActivity() {
         binding = ActivityNinthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Gunakan view dari binding secara langsung
+        setupToolbar()
+        setupListeners()
+    }
+
+    private fun setupToolbar() {
         setSupportActionBar(binding.includeToolbar.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Form Layanan"
-        binding.includeToolbar.toolbar.setNavigationOnClickListener { onBackPressed() }
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            title = "" // Judul sudah ada di layout custom
+        }
+        binding.includeToolbar.toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+    }
+
+    private fun setupListeners() {
+        // Hilangkan error saat user mulai mengetik
+        binding.tilNama.editText?.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) binding.tilNama.error = null
+        }
+        
+        binding.tilPesan.editText?.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) binding.tilPesan.error = null
+        }
 
         binding.btnKirim.setOnClickListener {
-            // Mengambil teks dari Chip yang dipilih
-            val selectedChipId = binding.chipGroupKategori.checkedChipId
-            val kategori = findViewById<Chip>(selectedChipId)?.text.toString()
-
-            val nama = binding.tilNama.editText?.text.toString()
-
-            if (nama.isNotEmpty()) {
-                Toast.makeText(this, "Berhasil! Pengajuan $kategori atas nama $nama telah dikirim.", Toast.LENGTH_LONG).show()
-                
-                // Mengosongkan form setelah berhasil kirim
-                binding.tilNama.editText?.text?.clear()
-                binding.tilPesan.editText?.text?.clear()
-                binding.tilNama.error = null // Menghilangkan error jika ada
-                binding.chipAdmin.isChecked = true // Reset kategori ke default
-                
-                // Menghilangkan fokus dari input agar keyboard bisa tertutup atau tidak menutupi layar
-                binding.tilNama.clearFocus()
-                binding.tilPesan.clearFocus()
-            } else {
-                binding.tilNama.error = "Harap isi nama lengkap"
-            }
+            validateAndSubmit()
         }
+    }
+
+    private fun validateAndSubmit() {
+        val selectedChipId = binding.chipGroupKategori.checkedChipId
+        val kategori = findViewById<Chip>(selectedChipId)?.text.toString()
+        val nama = binding.tilNama.editText?.text.toString().trim()
+        val pesan = binding.tilPesan.editText?.text.toString().trim()
+
+        var isValid = true
+
+        if (nama.isEmpty()) {
+            binding.tilNama.error = "Nama lengkap harus diisi"
+            isValid = false
+        }
+
+        if (pesan.isEmpty()) {
+            binding.tilPesan.error = "Detail keperluan harus diisi"
+            isValid = false
+        }
+
+        if (isValid) {
+            showSuccessDialog(kategori, nama)
+        }
+    }
+
+    private fun showSuccessDialog(kategori: String, nama: String) {
+        com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
+            .setTitle("Pengajuan Terkirim")
+            .setMessage("Terima kasih $nama, pengajuan untuk kategori $kategori telah kami terima dan akan segera diproses.")
+            .setPositiveButton("OKE") { _, _ ->
+                resetForm()
+            }
+            .setCancelable(false)
+            .show()
+    }
+
+    private fun resetForm() {
+        binding.tilNama.editText?.text?.clear()
+        binding.tilPesan.editText?.text?.clear()
+        binding.tilNama.error = null
+        binding.tilPesan.error = null
+        binding.chipAdmin.isChecked = true
+        binding.tilNama.clearFocus()
+        binding.tilPesan.clearFocus()
     }
 }

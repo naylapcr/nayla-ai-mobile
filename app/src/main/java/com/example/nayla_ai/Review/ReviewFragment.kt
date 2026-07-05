@@ -59,13 +59,20 @@ class ReviewFragment : Fragment() {
     }
 
     private fun deleteReview(review: ReviewModel) {
-        lifecycleScope.launch(Dispatchers.IO) {
-            database.reviewDao().delete(review)
-            val updatedList = database.reviewDao().getAllReviews()
-            withContext(Dispatchers.Main) {
-                adapter.updateData(updatedList)
-                Toast.makeText(context, "Review dihapus", Toast.LENGTH_SHORT).show()
+        com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Hapus Review")
+            .setMessage("Apakah Anda yakin ingin menghapus review ini?")
+            .setNegativeButton("Batal", null)
+            .setPositiveButton("Hapus") { _, _ ->
+                lifecycleScope.launch(Dispatchers.IO) {
+                    database.reviewDao().delete(review)
+                    val updatedList = database.reviewDao().getAllReviews()
+                    withContext(Dispatchers.Main) {
+                        adapter.updateData(updatedList)
+                        Toast.makeText(context, "Review berhasil dihapus", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
-        }
+            .show()
     }
 }

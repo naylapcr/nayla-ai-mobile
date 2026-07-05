@@ -19,9 +19,18 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        loadUserData()
+
         binding.btnLogout.setOnClickListener {
             showLogoutConfirmation()
         }
+    }
+
+    private fun loadUserData() {
+        val sharedPref = requireContext().getSharedPreferences("UserPrefs", android.content.Context.MODE_PRIVATE)
+        val name = sharedPref.getString("name", "Nayla")
+        
+        binding.tvProfileName.text = name
     }
 
     private fun showLogoutConfirmation() {
@@ -38,12 +47,15 @@ class ProfileFragment : Fragment() {
     }
 
     private fun logout() {
+        // Gunakan konteks dari fragment dengan aman
+        val context = context ?: return
+
         // 1. Hapus Session
-        val sharedPref = requireContext().getSharedPreferences("UserSession", android.content.Context.MODE_PRIVATE)
+        val sharedPref = context.getSharedPreferences("UserSession", android.content.Context.MODE_PRIVATE)
         sharedPref.edit().clear().apply()
 
         // 2. Arahkan ke LoginActivity
-        val intent = android.content.Intent(requireContext(), com.example.nayla_ai.LoginActivity::class.java)
+        val intent = android.content.Intent(context, com.example.nayla_ai.LoginActivity::class.java)
         intent.flags = android.content.Intent.FLAG_ACTIVITY_NEW_TASK or android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         

@@ -46,14 +46,16 @@ class HomeFragment : Fragment() {
 
         binding.btnWebView.setOnClickListener { startActivity(Intent(requireContext(), WebViewActivity::class.java)) }
 
-        binding.btnP3.setOnClickListener { startActivity(Intent(requireContext(), AuthActivity::class.java)) }
-
         binding.btnP9.setOnClickListener { startActivity(Intent(requireContext(), NinthActivity::class.java)) }
 
         binding.btnP10.setOnClickListener { startActivity(Intent(requireContext(), TenthActivity::class.java)) }
 
         binding.btnP13.setOnClickListener {
             startActivity(Intent(requireContext(), com.example.nayla_ai.Home.pertemuan_13.MultimediaActivity::class.java))
+        }
+
+        binding.btnLogout.setOnClickListener {
+            showLogoutConfirmation()
         }
 
         binding.btnLihatSemua.setOnClickListener {
@@ -93,6 +95,30 @@ class HomeFragment : Fragment() {
         val adapter = NewsAdapter(data)
         binding.rvNewsList.layoutManager = LinearLayoutManager(requireContext())
         binding.rvNewsList.adapter = adapter
+    }
+
+    private fun showLogoutConfirmation() {
+        com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Logout")
+            .setMessage("Apakah Anda yakin ingin keluar dari aplikasi?")
+            .setNegativeButton("Batal") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton("Ya, Keluar") { _, _ ->
+                logout()
+            }
+            .show()
+    }
+
+    private fun logout() {
+        val context = context ?: return
+        val sharedPref = context.getSharedPreferences("UserSession", android.content.Context.MODE_PRIVATE)
+        sharedPref.edit().clear().apply()
+
+        val intent = android.content.Intent(context, com.example.nayla_ai.LoginActivity::class.java)
+        intent.flags = android.content.Intent.FLAG_ACTIVITY_NEW_TASK or android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        requireActivity().finish()
     }
 
     override fun onDestroyView() {

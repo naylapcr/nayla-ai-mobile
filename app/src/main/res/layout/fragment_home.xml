@@ -329,24 +329,7 @@
                 app:strokeWidth="1dp"
                 />
 
-            <!-- 4. Footer Button: Admin Access -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnP3"
-                android:layout_width="match_parent"
-                android:layout_height="65dp"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="8dp"
-                android:text="Akses Konfigurasi Admin"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:cornerRadius="20dp"
-                app:icon="@drawable/key"
-                app:iconGravity="textStart"
-                android:backgroundTint="#1A237E"
-                android:textColor="@color/white"
-                app:iconTint="@color/white"/>
-
+            <!-- 4. Footer Button: Pengajuan & Multimedia -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnP9"
                 android:layout_width="match_parent"
@@ -380,6 +363,26 @@
                 android:backgroundTint="#673AB7"
                 android:textColor="@color/white"
                 app:iconTint="@color/white"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="12dp"
+                android:text="Logout Session"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/logout"
+                app:iconGravity="textStart"
+                android:backgroundTint="#FFEBEE"
+                android:textColor="#D32F2F"
+                app:iconTint="#D32F2F"
+                app:strokeColor="#FFCDD2"
+                app:strokeWidth="1dp"
+                />
 
             <TextView
                 android:layout_width="wrap_content"

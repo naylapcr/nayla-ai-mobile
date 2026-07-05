@@ -9,31 +9,29 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.nayla_ai.agenda.AgendaAdapter
-import com.example.nayla_ai.agenda.AgendaModel
 import com.example.nayla_ai.R
 import com.example.nayla_ai.ReminderReceiver
+import com.example.nayla_ai.databinding.ActivityAgendaListBinding
 
 class AgendaListActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityAgendaListBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_agenda_list)
+        binding = ActivityAgendaListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.includeToolbar.toolbar)
         supportActionBar?.apply {
             title = "Agenda Desa"
             setDisplayHomeAsUpEnabled(true)
         }
-        toolbar.setNavigationOnClickListener {
+        binding.includeToolbar.toolbar.setNavigationOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        val rv = findViewById<RecyclerView>(R.id.rvAgenda)
-        rv.layoutManager = LinearLayoutManager(this)
+        binding.rvAgenda.layoutManager = LinearLayoutManager(this)
 
-        // Data agenda lengkap sesuai dengan parameter class AgendaModel
         val listData = listOf(
             AgendaModel("Musyawarah Pembangunan", "09:00 WIB", "Balai Desa"),
             AgendaModel("Gotong Royong Bersama", "07:00 WIB", "Lapangan Utama"),
@@ -42,19 +40,15 @@ class AgendaListActivity : AppCompatActivity() {
             AgendaModel("Rapat Karang Taruna", "19:30 WIB", "Rumah Pak RT 04")
         )
 
-        rv.adapter = AgendaAdapter(this, listData)
+        binding.rvAgenda.adapter = AgendaAdapter(this, listData)
     }
 
-    // Fungsi ini dipanggil dari AgendaAdapter saat tombol pengingat diklik
     fun setReminder(minutes: Int, title: String) {
         val am = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-
-        // Intent ke ReminderReceiver dengan data judul agenda
         val intent = Intent(this, ReminderReceiver::class.java).apply {
             putExtra("agenda_title", title)
         }
 
-        // Gunakan hashCode title agar setiap agenda memiliki alarm unik
         val pi = PendingIntent.getBroadcast(
             this,
             title.hashCode(),
@@ -64,7 +58,6 @@ class AgendaListActivity : AppCompatActivity() {
 
         val triggerTime = System.currentTimeMillis() + (minutes * 60 * 1000)
 
-        // Cek izin khusus untuk Android 12+ (API 31+)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             if (am.canScheduleExactAlarms()) {
                 am.setExact(AlarmManager.RTC_WAKEUP, triggerTime, pi)

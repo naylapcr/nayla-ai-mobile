@@ -36,11 +36,6 @@ class OnboardingAdapter(
 
         if (position == titles.size - 1) {
             holder.btnStart.visibility = View.VISIBLE
-
-            holder.btnStart.setOnClickListener {
-                val intent = Intent(holder.itemView.context, LoginActivity::class.java)
-                holder.itemView.context.startActivity(intent)
-            }
             holder.btnStart.setOnClickListener { onStartClick() }
         } else {
             holder.btnStart.visibility = View.GONE
